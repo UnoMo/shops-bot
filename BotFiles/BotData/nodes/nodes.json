@@ -61,8 +61,8 @@
           "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
         }
       ],
-      "x": 350,
-      "y": 171,
+      "x": 423,
+      "y": 95,
       "rtype": "Message",
       "rsubtype": "Send Embed",
       "formdata": [
@@ -118,8 +118,8 @@
           "id": "2224944a-561a-4fa1-824b-2f31ea37c836"
         }
       ],
-      "x": 360,
-      "y": 324,
+      "x": 479,
+      "y": 270,
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
@@ -131,6 +131,78 @@
       "formnames": [
         "channelName",
         "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "helper",
+      "guid": "a2a4dc77-ab78-45c0-ad7d-21e5905944a6",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "aaced46a-c400-4d8b-823d-b80e4e0c343a"
+          ]
+        }
+      ],
+      "x": 145,
+      "y": 443
+    },
+    {
+      "type": "response",
+      "name": "helper menu",
+      "guid": "aaced46a-c400-4d8b-823d-b80e4e0c343a",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a2a4dc77-ab78-45c0-ad7d-21e5905944a6"
+        }
+      ],
+      "x": 411,
+      "y": 441,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "5CFAFF",
+        "Helper Menu",
+        "",
+        "Shops Bot",
+        "",
+        "",
+        "Hi, <@${dbsVars.CommandAuthor.id}> This is a embed test with nothing else to it at all.",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
         "saveToVariable",
         "saveToVariableType"
       ]

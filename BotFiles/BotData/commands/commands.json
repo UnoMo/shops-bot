@@ -49,6 +49,30 @@
           "savetovariabletype": "temp"
         }
       ]
+    },
+    {
+      "name": "helper",
+      "actions": [
+        {
+          "name": "helper menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "5CFAFF",
+          "title": "Helper Menu",
+          "url": "",
+          "authorname": "Shops Bot",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Hi, <@${dbsVars.CommandAuthor.id}> This is a embed test with nothing else to it at all.",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
     }
   ]
 }
