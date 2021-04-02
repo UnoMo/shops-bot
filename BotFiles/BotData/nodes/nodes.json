@@ -47,6 +47,8 @@
           "inline": "true"
         }
       ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -59,8 +61,8 @@
           "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
         }
       ],
-      "x": 345,
-      "y": 182,
+      "x": 350,
+      "y": 171,
       "rtype": "Message",
       "rsubtype": "Send Embed",
       "formdata": [
@@ -102,6 +104,8 @@
       "guid": "5053a44d-4a5e-460a-974d-da0cc07aac7c",
       "reactionFields": [],
       "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
