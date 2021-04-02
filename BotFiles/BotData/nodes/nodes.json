@@ -69,12 +69,12 @@
         "${dbsVars.CommandChannel.id}",
         "1FFF57",
         "Help Menu",
-        "",
+        "https://unomo.no",
         "Bot Name Here",
         "",
         "",
         "This is the embed description, replace this with some info about your bot!",
-        "",
+        "${dbsVars.CommandAuthor.user.defaultAvatarURL}",
         "",
         "",
         "false",
@@ -104,8 +104,6 @@
       "guid": "5053a44d-4a5e-460a-974d-da0cc07aac7c",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -156,8 +154,6 @@
       "guid": "aaced46a-c400-4d8b-823d-b80e4e0c343a",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
