@@ -76,8 +76,8 @@
         "This is the embed description, replace this with some info about your bot!",
         "${dbsVars.CommandAuthor.user.defaultAvatarURL}",
         "",
-        "",
-        "false",
+        "This is a Footer text",
+        "BOOL_TRUE@@",
         "",
         "temp"
       ],

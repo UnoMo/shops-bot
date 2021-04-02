@@ -29,8 +29,8 @@
           "description": "This is the embed description, replace this with some info about your bot!",
           "thumbnail": "${dbsVars.CommandAuthor.user.defaultAvatarURL}",
           "image": "",
-          "footer": "",
-          "timestamp": "false",
+          "footer": "This is a Footer text",
+          "timestamp": "BOOL_TRUE@@",
           "savetovariable": "",
           "savetovariabletype": "temp"
         }
