@@ -263,6 +263,8 @@
       "guid": "66e1fc8a-5d49-4cc3-b74d-169201e2d28e",
       "reactionFields": [],
       "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -280,7 +282,7 @@
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
-        "${dbsVars.CommandChannel.id}",
+        "${dbsVars.CommandAuthor.id}",
         "You need to have the manage messages permissions to start giveaways.",
         "",
         "temp"
@@ -505,7 +507,7 @@
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
-        "${dbsVars.CommandChannel.id}",
+        "${dbsVars.CommandAuthor.id}",
         "You have to specify a valid duration!",
         "",
         "temp"
@@ -562,8 +564,6 @@
       "guid": "a8c26cdd-e44f-46be-8f94-ee6356908019",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "true",
@@ -626,7 +626,7 @@
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
-        "${dbsVars.CommandChannel.id}",
+        "${dbsVars.CommandAuthor.id}",
         "You have to specify a valid prize!",
         "",
         "temp"
@@ -683,8 +683,6 @@
       "guid": "1c774c4a-e6fd-4fab-acee-5b581839ec75",
       "reactionFields": [],
       "embedfields": [],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "true",
@@ -747,7 +745,7 @@
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
-        "${dbsVars.CommandChannel.id}",
+        "${dbsVars.CommandAuthor.id}",
         "You have to specify a valid number of winners!",
         "",
         "temp"

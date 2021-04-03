@@ -128,7 +128,7 @@
               "name": "No permissions",
               "category": "Message",
               "type": "Send Message",
-              "channelname": "${dbsVars.CommandChannel.id}",
+              "channelname": "${dbsVars.CommandAuthor.id}",
               "messagetext": "You need to have the manage messages permissions to start giveaways.",
               "savetovariable": "",
               "savetovariabletype": "temp"
