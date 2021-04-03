@@ -120,7 +120,7 @@
               "varname": "${tempVars.channelname}",
               "savevartype": "temp",
               "compare": "equal to",
-              "value": "${dbsVars.CommandChannel.name}"
+              "value": "${dbsVars.CommandChannel.id}"
             }
           ],
           "falseActions": [

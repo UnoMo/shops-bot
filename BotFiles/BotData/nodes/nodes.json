@@ -365,7 +365,7 @@
         "${tempVars.channelname}",
         "temp",
         "equal to",
-        "${dbsVars.CommandChannel.name}"
+        "${dbsVars.CommandChannel.id}"
       ],
       "formnames": [
         "varname",
