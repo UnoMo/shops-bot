@@ -400,7 +400,7 @@
       "rsubtype": "Send Message",
       "formdata": [
         "${dbsVars.CommandAuthor.id}",
-        "You have to mention a valid channel. <${tempVars.channelname}> is no valid channel!",
+        "You have to mention a valid channel. ",
         "",
         "temp"
       ],

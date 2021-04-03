@@ -112,7 +112,7 @@
                   "category": "Message",
                   "type": "Send Message",
                   "channelname": "${dbsVars.CommandAuthor.id}",
-                  "messagetext": "You have to mention a valid channel. <${tempVars.channelname}> is no valid channel!",
+                  "messagetext": "You have to mention a valid channel. ",
                   "savetovariable": "",
                   "savetovariabletype": "temp"
                 }
