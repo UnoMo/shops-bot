@@ -83,6 +83,15 @@
           "type": "Check User Permissions",
           "trueActions": [
             {
+              "name": "saveGiveAway",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "channelGiveaway",
+              "vartype": "Text",
+              "savevartype": "server",
+              "param": "0"
+            },
+            {
               "name": "channel",
               "category": "Variable",
               "type": "Store Value in Variable",
@@ -97,13 +106,106 @@
               "type": "Check Variable Value",
               "trueActions": [
                 {
-                  "name": "getDuration",
+                  "name": "checkDuration",
                   "category": "Variable",
-                  "type": "Store Value in Variable",
-                  "varname": "duration",
-                  "vartype": "Text",
+                  "type": "Check Variable Value",
+                  "trueActions": [
+                    {
+                      "name": "checkWinners",
+                      "category": "Variable",
+                      "type": "Check Variable Value",
+                      "trueActions": [
+                        {
+                          "name": "checkGiveaway",
+                          "category": "Variable",
+                          "type": "Check Variable Value",
+                          "trueActions": [
+                            {
+                              "name": "StartGiveaway",
+                              "category": "Message",
+                              "type": "Send Embed",
+                              "fields": [
+                                {
+                                  "name": "Duration",
+                                  "value": "<${tempVars.duration}>",
+                                  "inline": "true"
+                                },
+                                {
+                                  "name": "Prizes",
+                                  "value": "<${tempVars.giveawayItem}>",
+                                  "inline": "true"
+                                },
+                                {
+                                  "name": "No. of Winners",
+                                  "value": "<${tempVars.winners}> Lucky ones",
+                                  "inline": "true"
+                                }
+                              ],
+                              "channelname": "${dbsVars.CommandChannel.id}",
+                              "color": "3BD4FF",
+                              "title": "🎉🎉 Giveaway 🎉🎉",
+                              "url": "",
+                              "authorname": "",
+                              "authorimageurl": "",
+                              "authorlink": "",
+                              "description": "We have started a giveway!  React with 🎉 to participate.",
+                              "thumbnail": "",
+                              "image": "",
+                              "footer": "",
+                              "timestamp": "false",
+                              "savetovariable": "",
+                              "savetovariabletype": "temp"
+                            }
+                          ],
+                          "falseActions": [
+                            {
+                              "name": "No Giveaway",
+                              "category": "Message",
+                              "type": "Send Message",
+                              "channelname": "${dbsVars.CommandAuthor.id}",
+                              "messagetext": "You have to specify a valid prize!",
+                              "savetovariable": "",
+                              "savetovariabletype": "temp"
+                            }
+                          ],
+                          "varname": "${serverVars.channelGiveaway[4+]}",
+                          "savevartype": "temp",
+                          "compare": "greater than",
+                          "value": "NULL"
+                        }
+                      ],
+                      "falseActions": [
+                        {
+                          "name": "No Winners",
+                          "category": "Message",
+                          "type": "Send Message",
+                          "channelname": "${dbsVars.CommandAuthor.id}",
+                          "messagetext": "You have to specify a valid number of winners!",
+                          "savetovariable": "",
+                          "savetovariabletype": "temp"
+                        }
+                      ],
+                      "varname": "${serverVars.channelGiveaway[3]}",
+                      "savevartype": "temp",
+                      "compare": "greater than",
+                      "value": "0"
+                    }
+                  ],
+                  "falseActions": [
+                    {
+                      "name": "No Duration",
+                      "category": "Message",
+                      "type": "Send Message",
+                      "channelname": "${dbsVars.CommandAuthor.id}",
+                      "messagetext": "You have to specify a valid duration!",
+                      "savetovariable": "",
+                      "savetovariabletype": "temp"
+                    }
+                  ],
+                  "varname": "${serverVars.channelGiveaway[2]}",
                   "savevartype": "temp",
-                  "param": "2"
+                  "compare": "greater than",
+                  "value": "NULL"
                 }
               ],
               "falseActions": [
@@ -117,7 +219,7 @@
                   "savetovariabletype": "temp"
                 }
               ],
-              "varname": "${tempVars.channelname}",
+              "varname": "${serverVars.channelGiveaway[1]}",
               "savevartype": "temp",
               "compare": "equal to",
               "value": "${dbsVars.CommandChannel.id}"

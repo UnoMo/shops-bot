@@ -226,7 +226,7 @@
         {
           "label": "has perms",
           "connections": [
-            "f3257e80-f3fb-497f-ba12-96918eccedb1"
+            "e6cfde4e-4d87-45e4-b106-65abd828c0b1"
           ]
         },
         {
@@ -313,11 +313,11 @@
       "inputs": [
         {
           "label": "trigger",
-          "id": "53df5d18-0341-4878-a9b0-4a9d09360306"
+          "id": "e6cfde4e-4d87-45e4-b106-65abd828c0b1"
         }
       ],
-      "x": 577,
-      "y": 649,
+      "x": 845,
+      "y": 441,
       "rtype": "Variable",
       "rsubtype": "Store Value in Variable",
       "formdata": [
@@ -343,7 +343,7 @@
         {
           "label": "true",
           "connections": [
-            "bf410d05-3580-44e7-b04a-31ccf7264037"
+            "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
           ]
         },
         {
@@ -359,12 +359,12 @@
           "id": "f3257e80-f3fb-497f-ba12-96918eccedb1"
         }
       ],
-      "x": 795,
-      "y": 618,
+      "x": 745,
+      "y": 623,
       "rtype": "Variable",
       "rsubtype": "Check Variable Value",
       "formdata": [
-        "${tempVars.channelname}",
+        "${serverVars.channelGiveaway[1]}",
         "temp",
         "equal to",
         "${dbsVars.CommandChannel.id}"
@@ -415,53 +415,15 @@
     },
     {
       "type": "response",
-      "name": "getDuration",
-      "guid": "bf410d05-3580-44e7-b04a-31ccf7264037",
-      "reactionFields": [],
-      "embedfields": [],
-      "saveToVariable": "duration",
-      "saveToVariableType": "temp",
-      "outputs": [
-        {
-          "label": "next response",
-          "connections": [
-            "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
-          ]
-        }
-      ],
-      "inputs": [
-        {
-          "label": "trigger",
-          "id": "cccc3335-cb4d-4280-8f6e-5957b0b717c6"
-        }
-      ],
-      "x": 1111,
-      "y": 618,
-      "rtype": "Variable",
-      "rsubtype": "Store Value in Variable",
-      "formdata": [
-        "duration",
-        "Text",
-        "temp",
-        "2"
-      ],
-      "formnames": [
-        "varname",
-        "vartype",
-        "saveVarType",
-        "param"
-      ]
-    },
-    {
-      "type": "response",
       "name": "checkDuration",
       "guid": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d",
+      "reactionFields": [],
       "embedfields": [],
       "outputs": [
         {
           "label": "true",
           "connections": [
-            "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d"
+            "1c774c4a-e6fd-4fab-acee-5b581839ec75"
           ]
         },
         {
@@ -474,13 +436,25 @@
       "inputs": [
         {
           "label": "trigger",
-          "id": "bf410d05-3580-44e7-b04a-31ccf7264037"
+          "id": "cccc3335-cb4d-4280-8f6e-5957b0b717c6"
         }
       ],
-      "x": 1327,
-      "y": 580,
+      "x": 1027,
+      "y": 600,
       "rtype": "Variable",
-      "rsubtype": "Check Variable Value"
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "${serverVars.channelGiveaway[2]}",
+        "temp",
+        "greater than",
+        "NULL"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "compare",
+        "value"
+      ]
     },
     {
       "type": "response",
@@ -502,8 +476,8 @@
           "id": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
         }
       ],
-      "x": 1574,
-      "y": 705,
+      "x": 1319,
+      "y": 749,
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
@@ -517,45 +491,6 @@
         "messageText",
         "saveToVariable",
         "saveToVariableType"
-      ]
-    },
-    {
-      "type": "response",
-      "name": "getPrice",
-      "guid": "4f5aa86d-c648-424d-b9f7-d622324be6f2",
-      "reactionFields": [],
-      "embedfields": [],
-      "saveToVariable": "giveawayItem",
-      "saveToVariableType": "temp",
-      "outputs": [
-        {
-          "label": "next response",
-          "connections": [
-            "a8c26cdd-e44f-46be-8f94-ee6356908019"
-          ]
-        }
-      ],
-      "inputs": [
-        {
-          "label": "trigger",
-          "id": "1c774c4a-e6fd-4fab-acee-5b581839ec75"
-        }
-      ],
-      "x": 2041,
-      "y": 529,
-      "rtype": "Variable",
-      "rsubtype": "Store Value in Variable",
-      "formdata": [
-        "giveawayItem",
-        "Text",
-        "temp",
-        "4+"
-      ],
-      "formnames": [
-        "varname",
-        "vartype",
-        "saveVarType",
-        "param"
       ]
     },
     {
@@ -581,15 +516,15 @@
       "inputs": [
         {
           "label": "trigger",
-          "id": "4f5aa86d-c648-424d-b9f7-d622324be6f2"
+          "id": "1c774c4a-e6fd-4fab-acee-5b581839ec75"
         }
       ],
-      "x": 2222,
-      "y": 487,
+      "x": 1541,
+      "y": 518,
       "rtype": "Variable",
       "rsubtype": "Check Variable Value",
       "formdata": [
-        "${tempVars.giveawayItem}",
+        "${serverVars.channelGiveaway[4+]}",
         "temp",
         "greater than",
         "NULL"
@@ -621,8 +556,8 @@
           "id": "a8c26cdd-e44f-46be-8f94-ee6356908019"
         }
       ],
-      "x": 2411,
-      "y": 620,
+      "x": 2225,
+      "y": 610,
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
@@ -640,45 +575,6 @@
     },
     {
       "type": "response",
-      "name": "getWinners",
-      "guid": "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d",
-      "reactionFields": [],
-      "embedfields": [],
-      "saveToVariable": "winners",
-      "saveToVariableType": "temp",
-      "outputs": [
-        {
-          "label": "next response",
-          "connections": [
-            "1c774c4a-e6fd-4fab-acee-5b581839ec75"
-          ]
-        }
-      ],
-      "inputs": [
-        {
-          "label": "trigger",
-          "id": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
-        }
-      ],
-      "x": 1635,
-      "y": 545,
-      "rtype": "Variable",
-      "rsubtype": "Store Value in Variable",
-      "formdata": [
-        "winners",
-        "Number",
-        "temp",
-        "3"
-      ],
-      "formnames": [
-        "varname",
-        "vartype",
-        "saveVarType",
-        "param"
-      ]
-    },
-    {
-      "type": "response",
       "name": "checkWinners",
       "guid": "1c774c4a-e6fd-4fab-acee-5b581839ec75",
       "reactionFields": [],
@@ -687,7 +583,7 @@
         {
           "label": "true",
           "connections": [
-            "4f5aa86d-c648-424d-b9f7-d622324be6f2"
+            "a8c26cdd-e44f-46be-8f94-ee6356908019"
           ]
         },
         {
@@ -700,15 +596,15 @@
       "inputs": [
         {
           "label": "trigger",
-          "id": "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d"
+          "id": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
         }
       ],
-      "x": 1850,
-      "y": 541,
+      "x": 1287,
+      "y": 561,
       "rtype": "Variable",
       "rsubtype": "Check Variable Value",
       "formdata": [
-        "${tempVars.winners}",
+        "${serverVars.channelGiveaway[3]}",
         "temp",
         "greater than",
         "0"
@@ -740,8 +636,8 @@
           "id": "1c774c4a-e6fd-4fab-acee-5b581839ec75"
         }
       ],
-      "x": 2038,
-      "y": 657,
+      "x": 1958,
+      "y": 760,
       "rtype": "Message",
       "rsubtype": "Send Message",
       "formdata": [
@@ -793,8 +689,8 @@
           "id": "a8c26cdd-e44f-46be-8f94-ee6356908019"
         }
       ],
-      "x": 2465,
-      "y": 469,
+      "x": 2232,
+      "y": 462,
       "rtype": "Message",
       "rsubtype": "Send Embed",
       "formdata": [
@@ -828,6 +724,45 @@
         "timestamp",
         "saveToVariable",
         "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "saveGiveAway",
+      "guid": "e6cfde4e-4d87-45e4-b106-65abd828c0b1",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "channelGiveaway",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f3257e80-f3fb-497f-ba12-96918eccedb1"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "53df5d18-0341-4878-a9b0-4a9d09360306"
+        }
+      ],
+      "x": 653,
+      "y": 436,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "channelGiveaway",
+        "Text",
+        "server",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
       ]
     }
   ]
