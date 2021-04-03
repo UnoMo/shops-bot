@@ -47,8 +47,6 @@
           "inline": "true"
         }
       ],
-      "saveToVariable": "",
-      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -179,6 +177,637 @@
         "",
         "",
         "Hi, <@${dbsVars.CommandAuthor.id}> This is a embed test with nothing else to it at all.",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "start-giveaway",
+      "guid": "73402ffb-5bde-4814-8c11-b7fd88ff20d6",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "53df5d18-0341-4878-a9b0-4a9d09360306"
+          ]
+        }
+      ],
+      "x": 132,
+      "y": 687
+    },
+    {
+      "type": "response",
+      "name": "Check Permissions",
+      "guid": "53df5d18-0341-4878-a9b0-4a9d09360306",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "has perms",
+          "connections": [
+            "f3257e80-f3fb-497f-ba12-96918eccedb1"
+          ]
+        },
+        {
+          "label": "doesn't have perms",
+          "connections": [
+            "66e1fc8a-5d49-4cc3-b74d-169201e2d28e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "73402ffb-5bde-4814-8c11-b7fd88ff20d6"
+        }
+      ],
+      "x": 375,
+      "y": 650,
+      "rtype": "User Action",
+      "rsubtype": "Check User Permissions",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        [
+          "MANAGE_MESSAGES"
+        ]
+      ],
+      "formnames": [
+        "user",
+        "permissions"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "No permissions",
+      "guid": "66e1fc8a-5d49-4cc3-b74d-169201e2d28e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "53df5d18-0341-4878-a9b0-4a9d09360306"
+        }
+      ],
+      "x": 582,
+      "y": 806,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "You need to have the manage messages permissions to start giveaways.",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "channel",
+      "guid": "f3257e80-f3fb-497f-ba12-96918eccedb1",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "channelname",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "cccc3335-cb4d-4280-8f6e-5957b0b717c6"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "53df5d18-0341-4878-a9b0-4a9d09360306"
+        }
+      ],
+      "x": 577,
+      "y": 649,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "channelname",
+        "Text",
+        "temp",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkChannel",
+      "guid": "cccc3335-cb4d-4280-8f6e-5957b0b717c6",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "bf410d05-3580-44e7-b04a-31ccf7264037"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "5c178f19-9e14-4d6a-998a-d46a79c14b36"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f3257e80-f3fb-497f-ba12-96918eccedb1"
+        }
+      ],
+      "x": 795,
+      "y": 618,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "${tempVars.channelname}",
+        "temp",
+        "equal to",
+        "${dbsVars.CommandChannel.name}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "noChannel",
+      "guid": "5c178f19-9e14-4d6a-998a-d46a79c14b36",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cccc3335-cb4d-4280-8f6e-5957b0b717c6"
+        }
+      ],
+      "x": 993,
+      "y": 773,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "You have to mention a valid channel. <${tempVars.channelname}> is no valid channel!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getDuration",
+      "guid": "bf410d05-3580-44e7-b04a-31ccf7264037",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "duration",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cccc3335-cb4d-4280-8f6e-5957b0b717c6"
+        }
+      ],
+      "x": 1111,
+      "y": 618,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "duration",
+        "Text",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkDuration",
+      "guid": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "33768328-2e7b-4ce5-9f57-c11baa3e2981"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bf410d05-3580-44e7-b04a-31ccf7264037"
+        }
+      ],
+      "x": 1327,
+      "y": 580,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value"
+    },
+    {
+      "type": "response",
+      "name": "No Duration",
+      "guid": "33768328-2e7b-4ce5-9f57-c11baa3e2981",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
+        }
+      ],
+      "x": 1574,
+      "y": 705,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "You have to specify a valid duration!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getPrice",
+      "guid": "4f5aa86d-c648-424d-b9f7-d622324be6f2",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "giveawayItem",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "a8c26cdd-e44f-46be-8f94-ee6356908019"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1c774c4a-e6fd-4fab-acee-5b581839ec75"
+        }
+      ],
+      "x": 2041,
+      "y": 529,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "giveawayItem",
+        "Text",
+        "temp",
+        "4+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkGiveaway",
+      "guid": "a8c26cdd-e44f-46be-8f94-ee6356908019",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "acdc557d-6b86-4ada-98f5-e1c49bc65176"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "ce0bd3a2-8521-4b8f-bb5c-ecc1c691650c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "4f5aa86d-c648-424d-b9f7-d622324be6f2"
+        }
+      ],
+      "x": 2222,
+      "y": 487,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "${tempVars.giveawayItem}",
+        "temp",
+        "greater than",
+        "NULL"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "No Giveaway",
+      "guid": "ce0bd3a2-8521-4b8f-bb5c-ecc1c691650c",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a8c26cdd-e44f-46be-8f94-ee6356908019"
+        }
+      ],
+      "x": 2411,
+      "y": 620,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "You have to specify a valid prize!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getWinners",
+      "guid": "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "winners",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "1c774c4a-e6fd-4fab-acee-5b581839ec75"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b3de4cfa-552a-42de-b68d-ae0e0cfcae3d"
+        }
+      ],
+      "x": 1635,
+      "y": 545,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "winners",
+        "Number",
+        "temp",
+        "3"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkWinners",
+      "guid": "1c774c4a-e6fd-4fab-acee-5b581839ec75",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "4f5aa86d-c648-424d-b9f7-d622324be6f2"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "175d8ada-4412-4649-98de-2b8198f7895d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "5d4f79d1-a720-44e3-9c4e-0a17dcbf769d"
+        }
+      ],
+      "x": 1850,
+      "y": 541,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "${tempVars.winners}",
+        "temp",
+        "greater than",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "No Winners",
+      "guid": "175d8ada-4412-4649-98de-2b8198f7895d",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1c774c4a-e6fd-4fab-acee-5b581839ec75"
+        }
+      ],
+      "x": 2038,
+      "y": 657,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "You have to specify a valid number of winners!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "StartGiveaway",
+      "guid": "acdc557d-6b86-4ada-98f5-e1c49bc65176",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Duration",
+          "value": "<${tempVars.duration}>",
+          "inline": "true"
+        },
+        {
+          "name": "Prizes",
+          "value": "<${tempVars.giveawayItem}>",
+          "inline": "true"
+        },
+        {
+          "name": "No. of Winners",
+          "value": "<${tempVars.winners}> Lucky ones",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a8c26cdd-e44f-46be-8f94-ee6356908019"
+        }
+      ],
+      "x": 2465,
+      "y": 469,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "3BD4FF",
+        "🎉🎉 Giveaway 🎉🎉",
+        "",
+        "",
+        "",
+        "",
+        "We have started a giveway!  React with 🎉 to participate.",
         "",
         "",
         "",

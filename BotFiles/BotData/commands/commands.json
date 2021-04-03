@@ -73,6 +73,73 @@
           "savetovariabletype": "temp"
         }
       ]
+    },
+    {
+      "name": "start-giveaway",
+      "actions": [
+        {
+          "name": "Check Permissions",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "channel",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "channelname",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "1"
+            },
+            {
+              "name": "checkChannel",
+              "category": "Variable",
+              "type": "Check Variable Value",
+              "trueActions": [
+                {
+                  "name": "getDuration",
+                  "category": "Variable",
+                  "type": "Store Value in Variable",
+                  "varname": "duration",
+                  "vartype": "Text",
+                  "savevartype": "temp",
+                  "param": "2"
+                }
+              ],
+              "falseActions": [
+                {
+                  "name": "noChannel",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "${dbsVars.CommandAuthor.id}",
+                  "messagetext": "You have to mention a valid channel. <${tempVars.channelname}> is no valid channel!",
+                  "savetovariable": "",
+                  "savetovariabletype": "temp"
+                }
+              ],
+              "varname": "${tempVars.channelname}",
+              "savevartype": "temp",
+              "compare": "equal to",
+              "value": "${dbsVars.CommandChannel.name}"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "No permissions",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "You need to have the manage messages permissions to start giveaways.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "MANAGE_MESSAGES"
+          ]
+        }
+      ]
     }
   ]
 }
